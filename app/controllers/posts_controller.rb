@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy like dislike]
   before_action :authenticate_user!, except: [:index,:show]
-  before_action :is_admin!, except: [:index,:show, :like, :dislike]
   before_action :authenticate_user!, only: [:like, :dislike]
   # GET /posts or /posts.json
   def index
