@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col">
+    <div class="p-3">
+
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= post.url_id%>"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="col">
+    <div>
+      <p class="lead" style="color: red;">
+        <%=post.title%>
+      </p>
+    </div>
+    <p class="">
+      Shared by: <%= post.user.username%> <% if current_user.voted_for?(post) %>| (Voted) <%else%>| (Un-Voted) <%end%> 
+          <br>At: <%= post.updated_at.strftime("%A, %B %e, %Y") %>
+    </p>
+    <div id="like-link" class="row justify-content-md-center">
+      <%= render 'posts/like_link', post: post %>
+    </div>
+    <div id="like-count">
+      <%= render 'posts/like', post: post %>
+    </div>
+    
+    <hr class="my-4">
+    <h5>Description:</h5>
+    <div class="post_body">
+      <%= truncate(post.content, length: 150) %>
+      <%= link_to 'Read more', post_path(post) %>
+    </div>
+  </div>
+</div>
+<hr class="my-4">

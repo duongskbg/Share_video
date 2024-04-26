@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Home</h1>
+
+<div id="posts">
+  <div class="container">
+    <div class="row">
+      <div class="digg_pagination">
+        <%= will_paginate @posts, :container => false %>
+      </div>
+    </div>
+  <% @posts.each do |post| %>
+    <%= render post %>
+  <% end %>
+  </div>
+</div>

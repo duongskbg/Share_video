@@ -1,0 +1,32 @@
+<div class="jumbotron">
+  <%=form_with model: post, id: 'post-form' do |f| %>
+    <form onsubmit="return validateForm()">
+      <div class="form-inputs">
+        <%= f.text_field :url %>
+      </div>
+      <br>
+      <div class="form-actions">
+        <!-- <%= f.button :submit%> -->
+        <%= button_to "Share", new_post_path, method: :post, class: "btn btn-primary" %>
+      </div>
+    </form>
+    <% end %>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Lấy thẻ form theo id
+    var form = document.getElementById('post-form');
+
+    // Bắt sự kiện submit của form
+    form.addEventListener('submit', function(event) {
+      // Ngăn chặn hành động mặc định của form (chẳng hạn gửi dữ liệu)
+      
+     
+      var inputValue = document.getElementById("post_url").value;
+      if (inputValue.trim() === "") {
+        event.preventDefault();
+        alert("Movie link cannot be empty");
+      }
+    });
+  });
+  </script>

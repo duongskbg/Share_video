@@ -1,0 +1,21 @@
+<% if current_user %>
+    <% if current_user.voted_for?(post) %>
+        <% if current_user.voted_up_on?(post) %>
+            <%= button_to like_post_path(post), method: :put, remote: :true, class: 'like-post col', data: { disable_with: 'Liking...' } do %>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <% end %>
+        <%else%>
+            <%= button_to dislike_post_path(post), method: :put, remote: :true, class: 'dislike-post col', data: { disable_with: 'Disliking...' } do %>
+            <i class="fa-solid fa-thumbs-down"></i>
+            <% end %>
+        <%end%>
+    <%else%>
+        <%= button_to like_post_path(post), method: :put, remote: :true, class: 'like-post col', data: { disable_with: 'Liking...' } do %>
+        <i class="fa-regular fa-thumbs-up"></i>
+        <% end %>
+        <div class="col-2"></div>
+        <%= button_to dislike_post_path(post), method: :put, remote: :true, class: 'dislike-post col', data: { disable_with: 'Disliking...' } do %>
+        <i class="fa-regular fa-thumbs-down"></i>
+        <% end %>
+    <%end%>
+<%end%>

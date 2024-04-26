@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="jumbotron">
+      <%= link_to @post.url, root_path %>
+      <p class="lead">
+       <%= @post.updated_at.strftime("%A, %B %e, %Y") %> by <%= @post.user.username%> | <%= pluralize(@post.views, "view")%> 
+      </p>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @post.url_id%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <hr class="my-4">
+      <div class="post_title">
+        <%= @post.title %>
+      </div>
+      <hr class="my-4">
+      <div class="post_body">
+        <%= @post.content %>
+      </div>
+    </div>
+  </div>
+</div>
