@@ -11,20 +11,23 @@
    ```bash
    git clone https://github.com/duongskbg/Share_video.git
    ```
-3. Install library:
+3. change directory to `Share_video`:
+   ```bash
+   cd Share_video
+   ```
+4. Install library:
    ```bash
    bundle install
    ``` 
-4. Active record:
+5. Active record:
    ```bash
    rails db:migrate
    ``` 
-5.Change directory to `Share_video` and start the web server:
+6.Start the web server:
   ```bash
-  cd Share_video
   rails s
   ```
-6.Go to `http://localhost:3000`
+7.Go to `http://localhost:3000`
 
 ### Deploy on docker
 
