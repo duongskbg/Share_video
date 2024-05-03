@@ -15,7 +15,7 @@
       </p>
     </div>
     <p class="">
-      Shared by: <%= post.user.username%> <% if current_user.voted_for?(post) %>| (Voted) <%else%>| (Un-Voted) <%end%> 
+      Shared by: <%= post.user.username%> <% if current_user %> <% if current_user.voted_for?(post) %>| (Voted) <%else%>| (Un-Voted) <%end%>  <%end%>
           <br>At: <%= post.updated_at.strftime("%A, %B %e, %Y") %>
     </p>
     <div id="like-link" class="row justify-content-md-center">
